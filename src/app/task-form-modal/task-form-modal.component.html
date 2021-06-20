@@ -1,0 +1,20 @@
+<h1>Task</h1>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" [(ngModel)]="task.isComplete" id="flexCheckDefault">
+  <label class="form-check-label" for="flexCheckDefault" style="padding-top: 2px;">
+    Completed
+  </label>
+</div>
+<div class="input-group mb-12">
+  <span class="input-group-text" id="basic-addon1"><mat-icon aria-hidden="false" aria-label="assignment icon">assignment</mat-icon></span>
+  <textarea type="text" class="form-control" [(ngModel)]="task.description" placeholder="description" aria-label="description" aria-describedby="basic-addon1"></textarea>
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1"><mat-icon aria-hidden="false" aria-label="watch_later icon">watch_later</mat-icon></span>
+  <input disabled type="date" class="form-control" [(ngModel)]="task.dueDate" placeholder="mm-dd-yyyy" aria-label="date" aria-describedby="basic-addon1">
+</div>
+
+<div class="input-group mb-3" style="display: flex; justify-content: space-between;">
+	<button type="button" class="btn btn-danger" (click)="closeDialog()">Close</button>
+	<button type="button" class="btn btn-primary" (click)="saveTask(task)">Save</button>
+</div>

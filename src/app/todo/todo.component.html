@@ -1,0 +1,27 @@
+<div class="container">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Completed</th>
+        <th scope="col">Description</th>
+        <th scope="col">Due Date</th>
+      </tr>
+    </thead>
+    <tbody style="cursor: pointer" title="Please click on a row to edit.">
+      <tr *ngFor="let task of taskList" (click)="updateTask(task)"
+          [ngClass]="{'overDue': (task.dueDate? task.dueDate: this.today.toISOString()) < this.today.toISOString()
+                     && !task.isComplete,'completed': task.isComplete}">
+      <th>{{task.id}}</th>
+        <td *ngIf="task.isComplete">
+          <mat-icon aria-hidden="false" aria-label="done icon">done</mat-icon>
+        </td>
+        <td *ngIf="!task.isComplete">
+          <mat-icon aria-hidden="false" aria-label="clear icon">clear</mat-icon>
+        </td>
+        <td>{{task.description}}</td>
+        <td>{{task.dueDate | date: 'full'}} </td>
+      </tr>
+    </tbody>
+	</table>
+</div>
